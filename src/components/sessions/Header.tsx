@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full h-20 z-50 flex flex-row justify-between px-8 py-4 select-none ${
+      className={`fixed top-0 left-0 w-full h-20 z-50 flex flex-row justify-between px-8 py-4  ${
         darkMode === true ? "text-white" : "text-black"
       }`}
     >

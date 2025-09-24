@@ -3,7 +3,7 @@ import Landing from "@/components/sessions/Landing";
 
 export default function Home() {
   return (
-    <div>
+    <div className="select-none">
       <Header />
       <Landing />
     </div>

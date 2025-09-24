@@ -25,6 +25,7 @@ export default function StickyCursor() {
       mousePos.current = { x: e.clientX, y: e.clientY };
     };
 
+    // Cập nhật lại vị trí
     const update = () => {
       setPosition({ ...mousePos.current });
       frame.current = requestAnimationFrame(update);
@@ -38,6 +39,7 @@ export default function StickyCursor() {
         "[data-cursor]"
       ) as HTMLElement | null;
       if (target) {
+        // Lấy style của thẻ được hover
         const style = getComputedStyle(target);
         setHoverStyle({
           width: style.width,
@@ -74,10 +76,10 @@ export default function StickyCursor() {
       }}
     >
       <div
-        className="backdrop-blur-sm -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"
+        className="backdrop-blur-sm blur-sm -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
         style={{
-          width: hoverStyle ? hoverStyle.width : "16px",
-          height: hoverStyle ? hoverStyle.height : "16px",
+          width: hoverStyle ? hoverStyle.width : "64px",
+          height: hoverStyle ? hoverStyle.height : "64px",
           borderRadius: hoverStyle ? hoverStyle.borderRadius : "50%",
           backgroundColor: "rgba(255,255,255,0.24)",
           opacity: isHover ? 0 : 1,
