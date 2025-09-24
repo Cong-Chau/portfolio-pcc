@@ -9,14 +9,14 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full h-20 z-50 flex flex-row justify-between px-8 py-4  ${
+      className={`fixed top-0 left-0 w-full h-20 z-50 flex flex-row gap-4 justify-between px-4 py-2 md:px-8 md:py-4  ${
         darkMode === true ? "text-white" : "text-black"
       }`}
     >
-      <div className={`flex flex-row gap-4 items-center`}>
+      <div className={`flex flex-row md:gap-4 items-center`}>
         <p className={`font-bold `}>PHAN CÔNG CHÂU</p>
         <nav
-          className={`flex flex-row gap-2 text-center ${
+          className={`hidden md:flex flex-row gap-2 text-center ${
             darkMode ? "bg-white/12" : "bg-black/12"
           }  rounded-[8px] p-1`}
         >
@@ -73,10 +73,11 @@ function Header() {
           data-cursor
           className={`flex flex-row ${
             darkMode ? "bg-white/11" : "bg-black/12"
-          } rounded-[8px]  gap-0.5 h-12 justify-center items-center py-1 px-2 hover:bg-white/24 duration-200`}
+          } rounded-[8px]  gap-0.5 h-12 justify-center items-center py-1 px-3 hover:bg-white/24 duration-200`}
         >
           <Earth />
-          Tiếng việt
+          <p className="block md:hidden ml-2">Vi</p>
+          <p className="hidden md:block ml-2">Tiếng Việt</p>
         </button>
       </div>
     </header>

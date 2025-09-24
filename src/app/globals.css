@@ -47,19 +47,19 @@
 }
 
 .ellipse-light-1 {
-  background-color: #d28fff;
+  background-color: #c56dff;
 }
 
 .ellipse-light-2 {
-  background-color: #8486e5;
+  background-color: #6366ff;
 }
 
 .ellipse-light-3 {
-  background-color: #ff6567;
+  background-color: #ff4144;
 }
 
 .ellipse-light-4 {
-  background-color: #9ed3ff;
+  background-color: #44abff;
 }
 
 /* Animation */
@@ -94,26 +94,36 @@
 .ellipse-dark-2,
 .ellipse-dark-3,
 .ellipse-dark-4 {
-  animation: float-pulse-rotate-move 60s ease-in-out infinite;
+  animation: float-pulse-rotate-move 10s ease-in-out infinite;
 }
 
 .ellipse-light-1,
 .ellipse-dark-1 {
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-delay: 0s;
 }
 .ellipse-light-2,
 .ellipse-dark-2 {
-  animation-duration: 12s;
+  animation-duration: 6s;
   animation-delay: 1s;
 }
 .ellipse-light-3,
 .ellipse-dark-3 {
-  animation-duration: 11s;
+  animation-duration: 7s;
   animation-delay: 2s;
 }
 .ellipse-light-4,
 .ellipse-dark-4 {
-  animation-duration: 14s;
+  animation-duration: 8s;
   animation-delay: 3s;
+}
+
+@keyframes bubbleBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px); /* chiều cao nảy, thay đổi tùy ý */
+  }
 }

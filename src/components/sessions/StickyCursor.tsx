@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface Position {
   x: number;
   y: number;
@@ -16,6 +16,7 @@ export default function StickyCursor() {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [hoverStyle, setHoverStyle] = useState<HoverStyle | null>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
+  const { darkMode, setDarkMode } = useDarkMode();
 
   const mousePos = useRef<Position>({ x: 0, y: 0 });
   const frame = useRef<number | null>(null);
@@ -70,18 +71,20 @@ export default function StickyCursor() {
 
   return (
     <div
-      className="fixed top-0 left-0 pointer-events-none z-11"
+      className="hidden md:block fixed top-0 left-0 pointer-events-none z-11"
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
       }}
     >
       <div
-        className="backdrop-blur-sm blur-sm -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+        className=" backdrop-blur-sm blur-sm -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
         style={{
-          width: hoverStyle ? hoverStyle.width : "64px",
-          height: hoverStyle ? hoverStyle.height : "64px",
+          width: hoverStyle ? hoverStyle.width : "72px",
+          height: hoverStyle ? hoverStyle.height : "72px",
           borderRadius: hoverStyle ? hoverStyle.borderRadius : "50%",
-          backgroundColor: "rgba(255,255,255,0.24)",
+          backgroundColor: darkMode
+            ? "rgba(255,255,255,0.24)"
+            : "rgba(0,0,0,0.24)",
           opacity: isHover ? 0 : 1,
         }}
       />
