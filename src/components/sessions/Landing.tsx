@@ -20,12 +20,12 @@ function Landing() {
       className={`${
         darkMode ? "text-white" : "text-black"
       } w-full min-h-[calc(100vh-80px)] flex flex-col md:flex-row md:justify-between 
-        pt-4 pl-4 pr-4
+        pt-12 pl-4 pr-4
         lg:pt-12 lg:pl-20 lg:pr-12
         2xl:pt-24 2xl:pl-48 2xl:pr-36`}
     >
       <div className="flex flex-col gap-4 w-full md:w-1/2">
-        <div data-cursor className="relative w-fit h-fit min-h-8">
+        <div className="relative w-fit h-fit min-h-8">
           <div className={`z-10 font-semibold text-xl inline-block`}>
             <TypingText
               text="Xin chào! Tôi là Phan Công Châu"
@@ -35,36 +35,37 @@ function Landing() {
           </div>
         </div>
         <motion.span
-          initial={{ opacity: 0, x: -100 }} // Trái sang
+          initial={{ opacity: 0, x: -200 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="font-bold text-5xl md:text-8xl"
+          className="font-bold text-5xl md:text-7xl"
         >
           Frontend
         </motion.span>
         <motion.span
-          initial={{ opacity: 0, x: -100 }} // Trái sang
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} // trễ hơn chút
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: false, amount: 0.5 }}
-          className="font-bold text-5xl md:text-8xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent"
+          className="font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent"
         >
           Developer
         </motion.span>
-        <div className="w-4/5 min-h-24">
+        <div className="w-4/5 min-h-32 md:min-h-24">
           <TypingText
             text=" As an Information Technology student passionate about frontend
           development, I have experience with React.js,Tailwind CSS, and various
           frontend technologies. I am to become a Fullstack Developer."
-            speed={20}
+            speed={10}
             style="w-3/4 mt-4"
           />
         </div>
         <motion.div
-          initial={{ opacity: 0, y: 100 }} // bắt đầu mờ + lệch xuống dưới
-          whileInView={{ opacity: 1, y: 0 }} // animate lên vị trí gốc
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          data-cursor
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: false, amount: 0.5 }}
           className="relative w-fit h-fit md:mt-4"
         >
@@ -73,7 +74,6 @@ function Landing() {
               darkMode ? "bg-black" : "bg-white"
             } blur-sm`}
           ></div>
-
           <button
             className={`relative z-10 border rounded-[12px] font-semibold py-2 px-4  ${
               darkMode
@@ -86,9 +86,9 @@ function Landing() {
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 100 }} // bắt đầu mờ + lệch xuống dưới
-        whileInView={{ opacity: 1, y: 0 }} // animate lên vị trí gốc
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         viewport={{ once: false, amount: 0.5 }}
         className="relative w-[717px] h-[347px] mt-12 hidden md:block"
       >
@@ -102,7 +102,13 @@ function Landing() {
       </motion.div>
       {/* Mobile */}
       <div className="w-full mt-12 flex flex-col gap-4 md:hidden">
-        <div className="flex flex-row items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="flex flex-row items-center"
+        >
           <div className="relative w-fit h-fit mr-2">
             <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
             <span
@@ -113,8 +119,15 @@ function Landing() {
             </span>
           </div>
           <span className="font-semibold mb-2">congchau206@gmail.com</span>
-        </div>
-        <div className="flex flex-row items-center">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="flex flex-row items-center"
+        >
           <div className="relative w-fit h-fit mr-2">
             <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
             <span
@@ -125,8 +138,15 @@ function Landing() {
             </span>
           </div>
           <span className="font-semibold mb-2">0703913350</span>
-        </div>
-        <div className="flex flex-row items-center">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="flex flex-row items-center"
+        >
           <div className="relative w-fit h-fit mr-2">
             <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
             <span
@@ -137,8 +157,15 @@ function Landing() {
             </span>
           </div>
           <span className="font-semibold mb-2">github.com/Cong-Chau</span>
-        </div>
-        <div className="flex flex-row items-center">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="flex flex-row items-center"
+        >
           <div className="relative w-fit h-fit mr-2">
             <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
             <span
@@ -151,8 +178,15 @@ function Landing() {
           <span className="font-semibold mb-2">
             linkedin.com/in/phancongchau20062004/
           </span>
-        </div>
-        <div className="flex flex-row  items-center">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="flex flex-row  items-center"
+        >
           <div className="relative w-fit h-fit mr-2">
             <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
             <span
@@ -163,7 +197,7 @@ function Landing() {
             </span>
           </div>
           <span className="font-semibold mb-2">TP Hồ Chí Minh</span>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

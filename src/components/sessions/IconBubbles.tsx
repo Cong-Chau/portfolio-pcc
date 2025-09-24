@@ -21,45 +21,45 @@ export default function IconBubbles() {
   const bubbles: Bubble[] = [
     {
       icon: <Mail size={24} />,
-      size: 50,
+      size: 40,
       x: 10,
-      y: -90,
+      y: -80,
       delay: 0,
       duration: 2,
       text: "Email: congchau206@gmail.com",
     },
     {
       icon: <PhoneCall size={28} />,
-      size: 60,
+      size: 40,
       x: 30,
-      y: -90,
+      y: -100,
       delay: 0.5,
       duration: 2.5,
       text: "Phone: 0703913350",
     },
     {
       icon: <Github size={26} />,
-      size: 55,
+      size: 40,
       x: 60,
-      y: -90,
+      y: -80,
       delay: 1,
       duration: 3,
       text: "Github: github.com/Cong-Chau",
     },
     {
       icon: <Linkedin size={24} />,
-      size: 50,
+      size: 40,
       x: 80,
-      y: -90,
+      y: -70,
       delay: 1.2,
       duration: 2.2,
       text: "LinkedIn: linkedin.com/in/phancongchau20062004/",
     },
     {
       icon: <MapPin size={30} />,
-      size: 65,
+      size: 40,
       x: 45,
-      y: -90,
+      y: -70,
       delay: 0.3,
       duration: 2.8,
       text: "Location: TP Hồ Chí Minh",
@@ -75,7 +75,7 @@ export default function IconBubbles() {
             key={i}
             className={`absolute flex justify-center items-center rounded-full ${
               darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
-            } pointer-events-auto hover:cursor-pointer hover:scale-110 transition-transform`}
+            } pointer-events-auto hover:cursor-pointer hover:scale-110 transition-transform hover:bg-white/24 `}
             style={{
               width: `${bubble.size}px`,
               height: `${bubble.size}px`,

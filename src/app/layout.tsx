@@ -4,6 +4,7 @@ import "./globals.css";
 import StickyCursor from "@/components/sessions/StickyCursor";
 import Background from "@/components/sessions/Background";
 import { DarkModeProvider } from "@/contexts/DarkModeContext";
+import Preloader from "@/components/common/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,9 +60,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
@@ -72,7 +73,9 @@ export default function RootLayout({
           <div className="absolute inset-0 z-10">
             <Background />
           </div>
-          <main className="relative z-12 pt-20">{children}</main>
+          <Preloader>
+            <main className="relative z-20 pt-20">{children}</main>
+          </Preloader>
         </DarkModeProvider>
       </body>
     </html>
