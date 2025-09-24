@@ -35,10 +35,10 @@ function Landing() {
           </div>
         </div>
         <motion.span
-          initial={{ opacity: 0, x: -200 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: false, amount: 0.5 }}
           className="font-bold text-5xl md:text-7xl"
         >
           Frontend
@@ -46,7 +46,7 @@ function Landing() {
         <motion.span
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           viewport={{ once: false, amount: 0.5 }}
           className="font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent"
         >

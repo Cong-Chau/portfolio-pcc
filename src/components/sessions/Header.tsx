@@ -18,7 +18,7 @@ function Header() {
         <nav
           className={`hidden md:flex flex-row gap-2 text-center ${
             darkMode ? "bg-white/12" : "bg-black/12"
-          }  rounded-[8px] p-1`}
+          }  rounded-[8px] p-1 backdrop-blur-sm`}
         >
           <a
             data-cursor
@@ -57,7 +57,7 @@ function Header() {
           </a>
         </nav>
       </div>
-      <div className="flex flex-row gap-4 items-center">
+      <div className="flex flex-row gap-4 items-center ">
         <div
           data-cursor
           onClick={() => {
@@ -65,7 +65,7 @@ function Header() {
           }}
           className={`${
             darkMode ? "bg-white/12" : "bg-black/12"
-          } rounded-[8px] p-1  h-12 w-12 flex justify-center items-center hover:bg-white/24 duration-200`}
+          } rounded-[8px] p-1  h-12 w-12 flex justify-center items-center hover:bg-white/24 duration-200 backdrop-blur-sm`}
         >
           <SunMoon className="w-6 h-6" />
         </div>
@@ -73,7 +73,7 @@ function Header() {
           data-cursor
           className={`flex flex-row ${
             darkMode ? "bg-white/11" : "bg-black/12"
-          } rounded-[8px]  gap-0.5 h-12 justify-center items-center py-1 px-3 hover:bg-white/24 duration-200`}
+          } rounded-[8px]  gap-0.5 h-12 justify-center items-center py-1 px-3 hover:bg-white/24 duration-200 backdrop-blur-sm`}
         >
           <Earth />
           <p className="block md:hidden ml-2">Vi</p>
