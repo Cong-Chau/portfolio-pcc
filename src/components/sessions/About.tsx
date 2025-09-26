@@ -1,70 +1,93 @@
 "use client";
-// import PdfViewer from "../cards/PdfViewer";
 import CVPreview from "../cards/CVPreview";
+import TypingText from "../cards/TextType";
+import { motion } from "framer-motion";
+import ScrambledText from "../cards/ScrambledText";
+import Tilt from "react-parallax-tilt";
+import { useDarkMode } from "@/contexts/DarkModeContext";
+
 function About() {
+  const { darkMode } = useDarkMode();
+
   return (
     <div className="w-full flex flex-col items-center justify-start gap-4 text-white mb-8">
-      <p className="font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+      <p className="w-full text-center font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
         About Me
       </p>
-      <p className="text-center w-2/5">
+      <p
+        className={`text-center w-4/5 md:w-2/5 ${
+          darkMode ? "text-white" : "text-black"
+        }`}
+      >
         Passionate developer with a love for creating beautiful and functional
         web experiences
       </p>
       <div className="flex flex-row w-4/5 justify-center gap-8 mt-8">
-        <div className=" w-2/5 flex flex-col items-center gap-4 rounded-full">
+        <div className="w-full md:w-2/5 flex flex-col items-center gap-4 rounded-full">
+          {/* avatar */}
           <div className="relative w-64 h-64 mb-8">
             <div className="absolute inset-0 rounded-full bg-white blur-sm"></div>
             {/* ảnh avatar */}
-            <img
-              className="relative w-full h-full object-cover rounded-full"
-              src="/images/avatar.jpg"
-              alt="About Me"
-            />
+            <Tilt
+              tiltMaxAngleX={15} // góc nghiêng tối đa theo trục X
+              tiltMaxAngleY={15} // góc nghiêng tối đa theo trục Y
+              perspective={1000} // chiều sâu 3D
+              scale={1.05} // phóng to nhẹ khi hover
+              transitionSpeed={1000} // tốc độ animation (ms)
+              gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile
+            >
+              <motion.img
+                data-cursor
+                initial={{ opacity: 0, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+                viewport={{ once: false, amount: 0.1 }}
+                className="relative w-full h-full object-cover rounded-full"
+                src="/images/avatar.jpg"
+                alt="About Me"
+              />
+            </Tilt>
           </div>
-
-          <p className="font-semibold w-full pl-4">
+          <ScrambledText
+            className={`scrambled-text-demo ${
+              darkMode ? "text-white" : "text-black"
+            }`}
+            radius={70}
+            duration={1.1}
+            speed={0.5}
+            scrambleChars="()[]{}<>/\\|@#$%^&*~`-+=;:,.?!"
+          >
             Xin chào, tôi là Phan Công Châu
-          </p>
-          <p className="text-justify w-full pl-4">
+            <br />
+            <br />
             Tôi là sinh viên Khoa Công nghệ Thông tin, Trường Đại học Khoa học
             Tự nhiên TP Hồ Chí Minh.
-          </p>
-          <p className="text-justify w-full pl-4">
+            <br />
+            <br />
             Tôi hiện theo đuổi lĩnh vực Frontend Development, với niềm đam mê
-            trong việc xây dựng các giao diện hiện đại, trực quan và tối ưu trải
-            nghiệm người dùng.
-          </p>
-          <p className="text-justify w-full pl-4">
-            Tôi luôn tìm tòi, học hỏi những công nghệ web mới nhất, áp dụng thực
-            hành tốt để phát triển kỹ năng và tạo ra những sản phẩm web chất
-            lượng, vừa thẩm mỹ vừa hiệu quả.
-          </p>
-
-          {/* Road map */}
-          <div className="w-full border-l-4 border-l-blue-500 pl-4 flex flex-col gap-6">
-            <div>
-              <p className="text-blue-300 font-semibold">Ngắn hạn</p>
-              <p>6-12 tháng: Nâng cao kỹ năng React, Next.js và TypeScript</p>
-            </div>
-            <div>
-              <p className="text-blue-500 font-semibold">Trung hạn</p>
-              <p>
-                1-2 năm: Phát triển kỹ năng Backend với Node.js, Express và cơ
-                sở dữ liệu
-              </p>
-            </div>
-            <div>
-              <p className="text-blue-700 font-semibold">Dài hạn</p>
-              <p>
-                2-5 năm: Trở thành Fullstack Developer, dẫn dắt team và mentor
-                cho junior
-              </p>
-            </div>
-          </div>
+            xây dựng giao diện hiện đại, tối ưu trải nghiệm người dùng.
+            <br />
+            <br />
+            Tôi hiện theo đuổi lĩnh vực Frontend Development, với niềm đam mê
+            xây dựng giao diện hiện đại, tối ưu trải nghiệm người dùng.
+            <br />
+            <br />
+            Tôi luôn tìm tòi, học hỏi những công nghệ mới nhất, áp dụng để phát
+            triển kỹ năng và tạo ra những sản phẩm web chất lượng, vừa thẩm mỹ
+            vừa hiệu quả.
+          </ScrambledText>
         </div>
-        <div className="w-3/5 min-h-96 h-fit p-4 rounded-[16px] relative">
-          <CVPreview />
+        <div className="hidden md:block w-3/5 relative ml-8">
+          <Tilt
+            tiltMaxAngleX={5} // góc nghiêng tối đa theo trục X
+            tiltMaxAngleY={5} // góc nghiêng tối đa theo trục Y
+            perspective={1000} // chiều sâu 3D
+            scale={1.05} // phóng to nhẹ khi hover
+            transitionSpeed={1000} // tốc độ animation (ms)
+            gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile
+          >
+            <CVPreview />
+          </Tilt>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
             className="fixed inset-0 flex items-center justify-center bg-black z-50"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
             {/* Spinner */}
             <motion.div
@@ -40,7 +40,7 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
         >
           {children}
         </motion.div>

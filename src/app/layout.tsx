@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import StickyCursor from "@/components/sessions/StickyCursor";
+import StickyCursor from "@/components/cards/StickyCursor";
 import Background from "@/components/sessions/Background";
 import { DarkModeProvider } from "@/contexts/DarkModeContext";
 import Preloader from "@/components/common/Preloader";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -66,10 +65,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full h-full`}
       >
         <DarkModeProvider>
           <StickyCursor />
+
           <div className="absolute inset-0 z-10">
             <Background />
           </div>

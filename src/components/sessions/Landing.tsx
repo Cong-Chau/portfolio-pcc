@@ -1,9 +1,10 @@
 "use client";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useDarkMode } from "@/contexts/DarkModeContext";
-import IconBubbles from "./IconBubbles";
-import TypingText from "./TypingText";
+import TextType from "../cards/TextType";
+import Shuffle from "../cards/Shuffle";
 import {
   Download,
   Github,
@@ -12,9 +13,39 @@ import {
   MapPin,
   PhoneCall,
 } from "lucide-react";
-function Landing() {
-  const { darkMode, setDarkMode } = useDarkMode();
 
+interface Bubble {
+  icon: React.ReactNode;
+  text: string;
+}
+
+const bubbles: Bubble[] = [
+  {
+    icon: <Mail />,
+    text: "Email: congchau206@gmail.com",
+  },
+  {
+    icon: <PhoneCall />,
+    text: "Phone: 0703913350",
+  },
+  {
+    icon: <Github />,
+    text: "Github: github.com/Cong-Chau",
+  },
+  {
+    icon: <Linkedin />,
+    text: "LinkedIn: linkedin.com/in/phancongchau20062004/",
+  },
+  {
+    icon: <MapPin />,
+    text: "Location: TP Hồ Chí Minh",
+  },
+];
+
+function Landing() {
+  const [hoverText, setHoverText] = useState<string | null>(null);
+  const { darkMode, setDarkMode } = useDarkMode();
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   return (
     <div
       className={`${
@@ -26,46 +57,55 @@ function Landing() {
     >
       <div className="flex flex-col gap-4 w-full md:w-1/2">
         <div className="relative w-fit h-fit min-h-8">
-          <div className={`z-10 font-semibold text-xl inline-block`}>
-            <TypingText
-              text="Xin chào! Tôi là Phan Công Châu"
-              speed={100}
-              style="font-bold text-xl"
+          <div className={`z-10 font-semibold text-xl inline-block `}>
+            <TextType
+              text={["Xin chào, tôi là Phan Công Châu"]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor={true}
+              cursorCharacter="|"
             />
           </div>
         </div>
         <motion.span
-          initial={{ opacity: 0, x: -150 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true }}
           className="font-bold text-5xl md:text-7xl"
         >
           Frontend
         </motion.span>
-        <motion.span
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent"
-        >
-          Developer
-        </motion.span>
+        <Shuffle
+          text="Developer"
+          shuffleDirection="right"
+          duration={0.35}
+          animationMode="evenodd"
+          shuffleTimes={1}
+          ease="power3.out"
+          stagger={0.03}
+          threshold={0.1}
+          triggerOnce={true}
+          triggerOnHover={true}
+          respectReducedMotion={true}
+        />
         <div className="w-4/5 min-h-32 md:min-h-24">
-          <TypingText
-            text=" As an Information Technology student passionate about frontend
-          development, I have experience with React.js,Tailwind CSS, and various
-          frontend technologies. I am to become a Fullstack Developer."
-            speed={10}
-            style="w-3/4 mt-4"
+          <TextType
+            text={[
+              " As an Information Technology student passionate about frontend development, I have experience with React.js,Tailwind CSS, and various frontend technologies. I am to become a Fullstack Developer.",
+            ]}
+            typingSpeed={1}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
           />
         </div>
+        {/* Button */}
         <motion.div
           data-cursor
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: false, amount: 0.5 }}
           className="relative w-fit h-fit md:mt-4"
         >
@@ -84,22 +124,63 @@ function Landing() {
             <p>CV của tôi</p> <Download />
           </button>
         </motion.div>
+        {/* Icon */}
+        <div className="hidden md:flex flex-row w-full min-h-10 justify-start gap-6 mt-8">
+          {bubbles.map((bubble, index) => (
+            <motion.div
+              key={index}
+              data-cursor
+              initial={{ opacity: 0, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1.5,
+                ease: "easeOut",
+                delay: index * 0.15,
+              }}
+              viewport={{ once: false, amount: 0.5 }}
+              onMouseEnter={(e) => {
+                setHoverText(bubble.text);
+              }}
+              onMouseLeave={() => setHoverText(null)}
+              onMouseMove={(e) => {
+                setCursorPos({ x: e.clientX, y: e.clientY });
+              }}
+              className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] ${
+                darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+              }`}
+            >
+              {bubble.icon}
+            </motion.div>
+          ))}
+        </div>
+        {/* Con trỏ text hover */}
+        {hoverText && (
+          <div
+            className="fixed pointer-events-none bg-black text-white text-sm px-2 py-1 rounded shadow-lg z-50"
+            style={{
+              left: cursorPos.x + 15,
+              top: cursorPos.y + 15,
+            }}
+          >
+            {hoverText}
+          </div>
+        )}
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        viewport={{ once: false, amount: 0.5 }}
-        className="relative w-[717px] h-[347px] mt-12 hidden md:block"
-      >
-        <DotLottieReact
-          src="/gifs/Technology.lottie"
-          className="lg:w-full lg:h-full mb-14"
-          loop
-          autoplay
-        />
-        <IconBubbles />
-      </motion.div>
+      <div className="relative w-[717px] h-[347px] mt-12 hidden md:block">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <DotLottieReact
+            src="/gifs/Technology.lottie"
+            className="lg:w-full lg:h-full mb-14"
+            loop
+            autoplay
+          />
+        </motion.div>
+      </div>
       {/* Mobile */}
       <div className="w-full mt-12 flex flex-col gap-4 md:hidden">
         <motion.div
@@ -109,14 +190,12 @@ function Landing() {
           viewport={{ once: false, amount: 0.5 }}
           className="flex flex-row items-center"
         >
-          <div className="relative w-fit h-fit mr-2">
-            <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
-            <span
-              data-cursor
-              className="relative z-10 bg-linear-gray-black border border-gray-400 rounded-[8px] font-semibold text-xl p-2 inline-block"
-            >
-              <Mail className="w-5 h-5 align-middle" />
-            </span>
+          <div
+            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 ${
+              darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+            }`}
+          >
+            <Mail />
           </div>
           <span className="font-semibold mb-2">congchau206@gmail.com</span>
         </motion.div>
@@ -128,14 +207,12 @@ function Landing() {
           viewport={{ once: false, amount: 0.5 }}
           className="flex flex-row items-center"
         >
-          <div className="relative w-fit h-fit mr-2">
-            <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
-            <span
-              data-cursor
-              className="relative z-10 bg-linear-gray-black border border-gray-400 rounded-[8px] font-semibold text-xl p-2 inline-block"
-            >
-              <PhoneCall className="w-5 h-5 align-middle" />
-            </span>
+          <div
+            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 ${
+              darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+            }`}
+          >
+            <PhoneCall />
           </div>
           <span className="font-semibold mb-2">0703913350</span>
         </motion.div>
@@ -147,14 +224,12 @@ function Landing() {
           viewport={{ once: false, amount: 0.5 }}
           className="flex flex-row items-center"
         >
-          <div className="relative w-fit h-fit mr-2">
-            <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
-            <span
-              data-cursor
-              className="relative z-10 bg-linear-gray-black border border-gray-400 rounded-[8px] font-semibold text-xl p-2 inline-block"
-            >
-              <Github className="w-5 h-5 align-middle" />
-            </span>
+          <div
+            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 ${
+              darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+            }`}
+          >
+            <Github />
           </div>
           <span className="font-semibold mb-2">github.com/Cong-Chau</span>
         </motion.div>
@@ -166,14 +241,12 @@ function Landing() {
           viewport={{ once: false, amount: 0.5 }}
           className="flex flex-row items-center"
         >
-          <div className="relative w-fit h-fit mr-2">
-            <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
-            <span
-              data-cursor
-              className="relative z-10 bg-linear-gray-black border border-gray-400 rounded-[8px] font-semibold text-xl p-2 inline-block"
-            >
-              <Linkedin className="w-5 h-5 align-middle" />
-            </span>
+          <div
+            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 ${
+              darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+            }`}
+          >
+            <Linkedin className="w-5 h-5 align-middle" />
           </div>
           <span className="font-semibold mb-2">
             linkedin.com/in/phancongchau20062004/
@@ -187,14 +260,12 @@ function Landing() {
           viewport={{ once: false, amount: 0.5 }}
           className="flex flex-row  items-center"
         >
-          <div className="relative w-fit h-fit mr-2">
-            <div className="absolute inset-0 rounded-[16px] bg-gray-600 blur-sm"></div>
-            <span
-              data-cursor
-              className="relative z-10 bg-linear-gray-black border border-gray-400 rounded-[8px] font-semibold text-xl p-2 inline-block"
-            >
-              <MapPin className="w-5 h-5 align-middle" />
-            </span>
+          <div
+            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 ${
+              darkMode ? "bg-white/20 text-white" : "bg-black/20 text-black"
+            }`}
+          >
+            <MapPin />
           </div>
           <span className="font-semibold mb-2">TP Hồ Chí Minh</span>
         </motion.div>
