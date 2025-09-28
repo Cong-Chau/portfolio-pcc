@@ -104,10 +104,10 @@ function Landing() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: false, amount: 0.5 }}
-          className="cursor-target relative w-auto h-auto md:mt-4 hover:scale-105"
+          className=" relative w-auto h-auto md:mt-4 "
         >
           <button
-            className={`relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white
+            className={`cursor-target relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white hover:scale-105
                         hover:cursor-pointer duration-200 flex flex-row gap-2`}
           >
             <p>CV của tôi</p> <Download />
