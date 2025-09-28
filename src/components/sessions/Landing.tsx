@@ -162,7 +162,7 @@ function Landing() {
         >
           <DotLottieReact
             src="/gifs/Technology.lottie"
-            className="lg:w-[800px] lg:h-[400px] mb-14"
+            className="lg:w-full lg:h-full mb-14"
             loop
             autoplay
           />
