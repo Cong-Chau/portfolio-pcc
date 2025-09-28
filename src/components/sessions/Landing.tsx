@@ -48,9 +48,10 @@ function Landing() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   return (
     <div
+      id="home"
       className={`${
         darkMode ? "text-white" : "text-black"
-      } w-full min-h-[calc(100vh-80px)] flex flex-col md:flex-row md:justify-between 
+      } w-full min-h-[calc(100vh-80px)] flex flex-col md:flex-row md:justify-between scroll-mt-20
         pt-12 pl-4 pr-4
         lg:pt-12 lg:pl-20 lg:pr-12
         2xl:pt-24 2xl:pl-48 2xl:pr-36`}

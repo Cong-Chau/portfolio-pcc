@@ -10,7 +10,10 @@ function About() {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className="w-full flex flex-col items-center justify-start gap-4 text-white mb-8">
+    <div
+      id="about"
+      className="w-full flex flex-col items-center justify-start gap-4 text-white mb-8 scroll-mt-20"
+    >
       <p className="w-full text-center font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
         About Me
       </p>

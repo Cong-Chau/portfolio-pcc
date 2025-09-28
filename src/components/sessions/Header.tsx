@@ -22,14 +22,14 @@ function Header() {
         >
           <a
             data-cursor
-            href="#"
+            href="#home"
             className="hover:bg-white/24 duration-200 m-1 p-1 px-2 rounded-[4px] font-semibold"
           >
             Trang chủ
           </a>
           <a
             data-cursor
-            href="#"
+            href="#about"
             className="hover:bg-white/24 duration-200 m-1 p-1 px-2 rounded-[4px] font-semibold"
           >
             Giới thiệu

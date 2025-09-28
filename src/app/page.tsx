@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/sessions/Header";
 import Landing from "@/components/sessions/Landing";
 import About from "@/components/sessions/About";

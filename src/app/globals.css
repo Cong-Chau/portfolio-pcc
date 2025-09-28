@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Dark mode */
 .bg-linear-gray-black {
   background: linear-gradient(
