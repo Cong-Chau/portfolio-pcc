@@ -4,11 +4,8 @@ import TypingText from "../cards/TextType";
 import { motion } from "framer-motion";
 import ScrambledText from "../cards/ScrambledText";
 import Tilt from "react-parallax-tilt";
-import { useDarkMode } from "@/contexts/DarkModeContext";
 
 function About() {
-  const { darkMode } = useDarkMode();
-
   return (
     <div
       id="about"
@@ -17,15 +14,11 @@ function About() {
       <p className="w-full text-center font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
         About Me
       </p>
-      <p
-        className={`text-center w-4/5 md:w-2/5 ${
-          darkMode ? "text-white" : "text-black"
-        }`}
-      >
+      <p className={`text-center w-4/5 md:w-2/5 text-white`}>
         Passionate developer with a love for creating beautiful and functional
         web experiences
       </p>
-      <div className="flex flex-row w-4/5 justify-center gap-8 mt-8">
+      <div className="flex flex-row w-4/5 justify-center gap-8 mt-8 ">
         <div className="w-full md:w-2/5 flex flex-col items-center gap-4 rounded-full">
           {/* avatar */}
           <div className="relative w-64 h-64 mb-8">
@@ -40,21 +33,18 @@ function About() {
               gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile
             >
               <motion.img
-                data-cursor
                 initial={{ opacity: 0, x: 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.05 }}
                 viewport={{ once: false, amount: 0.1 }}
-                className="relative w-full h-full object-cover rounded-full"
+                className="relative w-full h-full object-cover rounded-full cursor-target"
                 src="/images/avatar.jpg"
                 alt="About Me"
               />
             </Tilt>
           </div>
           <ScrambledText
-            className={`scrambled-text-demo ${
-              darkMode ? "text-white" : "text-black"
-            }`}
+            className={`scrambled-text-demo text-white`}
             radius={70}
             duration={1.1}
             speed={0.5}
@@ -84,7 +74,7 @@ function About() {
           <Tilt
             tiltMaxAngleX={5} // góc nghiêng tối đa theo trục X
             tiltMaxAngleY={5} // góc nghiêng tối đa theo trục Y
-            perspective={1000} // chiều sâu 3D
+            perspective={2000} // chiều sâu 3D
             scale={1.05} // phóng to nhẹ khi hover
             transitionSpeed={1000} // tốc độ animation (ms)
             gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile

@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
-import { useDarkMode } from "@/contexts/DarkModeContext";
 gsap.registerPlugin(SplitText, ScrambleTextPlugin);
 
 export interface ScrambledTextProps {
@@ -26,7 +25,6 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
   children,
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     if (!rootRef.current) return;

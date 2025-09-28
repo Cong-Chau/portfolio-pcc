@@ -10,7 +10,6 @@ import {
   useCallback,
 } from "react";
 import { gsap } from "gsap";
-import { useDarkMode } from "@/contexts/DarkModeContext";
 
 interface TextTypeProps {
   className?: string;
@@ -61,7 +60,6 @@ const TextType = ({
   const [isVisible, setIsVisible] = useState(!startOnVisible);
   const cursorRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLElement>(null);
-  const { darkMode } = useDarkMode();
   const textArray = useMemo(
     () => (Array.isArray(text) ? text : [text]),
     [text]
@@ -74,8 +72,7 @@ const TextType = ({
   }, [variableSpeed, typingSpeed]);
 
   const getCurrentTextColor = () => {
-    if (darkMode) return "#ffffff";
-    else return "#000000";
+    return "#ffffff";
   };
 
   useEffect(() => {

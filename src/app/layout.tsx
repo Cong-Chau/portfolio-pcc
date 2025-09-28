@@ -1,15 +1,12 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StickyCursor from "@/components/cards/StickyCursor";
 import Background from "@/components/sessions/Background";
-import { DarkModeProvider } from "@/contexts/DarkModeContext";
 import Preloader from "@/components/common/Preloader";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+import TargetCursor from "@/components/cards/TargetCursor";
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -17,11 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Phan Công Châu - Frontend Developer",
-  description:
-    "Portfolio cá nhân của Phan Công Châu - Frontend Developer. Kinh nghiệm React, Next.js, TailwindCSS và xây dựng ứng dụng web hiện đại.",
-  icons: {
-    icon: "/images/favicon.png", // hoặc "/favicon.png"
-  },
+  description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+  icons: { icon: "/images/favicon.png" },
   keywords: [
     "Phan Công Châu",
     "Frontend Developer",
@@ -31,30 +25,6 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Phan Công Châu" }],
-  openGraph: {
-    title: "Phan Công Châu - Frontend Developer",
-    description:
-      "Xem portfolio của Phan Công Châu với các dự án React, Next.js, TailwindCSS.",
-    url: "https://your-domain.com", // đổi thành domain thật
-    siteName: "Portfolio - Phan Công Châu",
-    images: [
-      {
-        url: "/preview.png", // ảnh preview khi share (đặt trong /public)
-        width: 1200,
-        height: 630,
-        alt: "Preview Portfolio Phan Công Châu",
-      },
-    ],
-    locale: "vi_VN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Phan Công Châu - Frontend Developer",
-    description:
-      "Portfolio cá nhân về React, Next.js, TailwindCSS và các dự án web.",
-    images: ["/preview.png"],
-  },
 };
 
 export default function RootLayout({
@@ -65,18 +35,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full h-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full h-full bg-black`}
       >
-        <DarkModeProvider>
-          <StickyCursor />
-
-          <div className="absolute inset-0 z-10">
-            <Background />
-          </div>
-          <Preloader>
-            <main className="relative z-20 pt-20">{children}</main>
-          </Preloader>
-        </DarkModeProvider>
+        {/* <StickyCursor /> */}
+        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+        <Background />
+        <Preloader>
+          <main className="relative z-10 pt-20">{children}</main>
+        </Preloader>
       </body>
     </html>
   );
