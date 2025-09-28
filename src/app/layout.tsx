@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import StickyCursor from "@/components/cards/StickyCursor";
 import Background from "@/components/sessions/Background";
 import Preloader from "@/components/common/Preloader";
 import TargetCursor from "@/components/cards/TargetCursor";
@@ -37,7 +36,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full h-full bg-black`}
       >
-        {/* <StickyCursor /> */}
         <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         <Background />
         <Preloader>
