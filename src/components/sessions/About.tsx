@@ -28,7 +28,7 @@ function About() {
               tiltMaxAngleX={15} // góc nghiêng tối đa theo trục X
               tiltMaxAngleY={15} // góc nghiêng tối đa theo trục Y
               perspective={1000} // chiều sâu 3D
-              scale={1.05} // phóng to nhẹ khi hover
+              scale={1} // phóng to nhẹ khi hover
               transitionSpeed={1000} // tốc độ animation (ms)
               gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile
             >
@@ -75,7 +75,7 @@ function About() {
             tiltMaxAngleX={5} // góc nghiêng tối đa theo trục X
             tiltMaxAngleY={5} // góc nghiêng tối đa theo trục Y
             perspective={2000} // chiều sâu 3D
-            scale={1.05} // phóng to nhẹ khi hover
+            scale={1} // phóng to nhẹ khi hover
             transitionSpeed={1000} // tốc độ animation (ms)
             gyroscope={true} // cho phép xoay theo cảm biến gyroscope trên mobile
           >
