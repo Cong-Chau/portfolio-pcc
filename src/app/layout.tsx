@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Phan Công Châu - Frontend Developer",
   description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
-  icons: { icon: "/images/favicon.png" },
   keywords: [
     "Phan Công Châu",
     "Frontend Developer",
@@ -24,6 +23,29 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Phan Công Châu" }],
+  icons: { icon: "/images/favicon.png" },
+  openGraph: {
+    title: "Phan Công Châu - Frontend Developer",
+    description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+    url: "https://phancongchau.vercel.app/",
+    siteName: "Phan Công Châu Portfolio",
+    images: [
+      {
+        url: "/images/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Preview",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Phan Công Châu - Frontend Developer",
+    description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+    images: ["/images/preview.png"],
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative w-full h-full bg-black`}
       >
