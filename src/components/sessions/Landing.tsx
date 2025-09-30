@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TextType from "../cards/TextType";
 import Shuffle from "../cards/Shuffle";
-import TargetCursor from "../cards/TargetCursor";
 import {
   Download,
   Github,
@@ -107,7 +106,7 @@ function Landing() {
           className=" relative w-auto h-auto md:mt-4 "
         >
           <button
-            className={`cursor-target relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white hover:scale-105
+            className={`cursor-target relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white hover:bg-white hover:text-black
                         hover:cursor-pointer duration-200 flex flex-row gap-2`}
           >
             <p>CV của tôi</p> <Download />

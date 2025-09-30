@@ -29,7 +29,7 @@ function Header() {
             Kỹ năng
           </a>
           <a
-            href="#"
+            href="#projects"
             className="hover:bg-white/24 duration-200 m-1 p-1 px-2 rounded-[4px] font-semibold cursor-target"
           >
             Dự án

@@ -48,7 +48,7 @@ function About() {
             radius={70}
             duration={1.1}
             speed={0.5}
-            scrambleChars="()[]{}<>/\\|@#$%^&*~`-+=;:,.?!"
+            scrambleChars=":."
           >
             Xin chào, tôi là Phan Công Châu
             <br />

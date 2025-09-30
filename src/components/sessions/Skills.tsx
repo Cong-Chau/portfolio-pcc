@@ -1,6 +1,7 @@
 "use client";
 
 import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 const techs = [
   { title: "HTML5", iconClass: "devicon-html5-plain colored" },
@@ -32,11 +33,17 @@ function Skills() {
       </p>
 
       {/* Công nghệ */}
-      <div className="w-1/2">
-        <p className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto">
+      <div className="w-2/3 md:w-1/2">
+        <motion.p
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto"
+        >
           Công nghệ
-        </p>
-        <div className="grid grid-cols-3 gap-8 w-full mx-auto mt-6">
+        </motion.p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full mx-auto mt-6">
           {techs.map((tech, index) => (
             <Tilt
               key={index}
@@ -47,23 +54,41 @@ function Skills() {
               transitionSpeed={1000}
               gyroscope={true}
             >
-              <div className="cursor-target text-center bg-white/12 hover:bg-white/8 rounded-[8px] p-4 backdrop-blur-[4px] flex flex-col items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeOut",
+                  delay: index * 0.05,
+                }}
+                viewport={{ once: false, amount: 0.1 }}
+                className="cursor-target text-center bg-white/12 hover:bg-white/8 rounded-[8px] p-4 backdrop-blur-[4px] flex flex-col items-center"
+              >
                 <div className="w-1/2 flex justify-center">
-                  <i className={`${tech.iconClass} text-[64px]`}></i>
+                  <i
+                    className={`${tech.iconClass} text-5xl md:text-[64px]`}
+                  ></i>
                 </div>
                 <p className="mt-2">{tech.title}</p>
-              </div>
+              </motion.div>
             </Tilt>
           ))}
         </div>
       </div>
 
       {/* Công cụ */}
-      <div className="w-1/2">
-        <p className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto">
+      <div className="w-2/3 md:w-1/2">
+        <motion.p
+          initial={{ opacity: 0, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto"
+        >
           Công cụ
-        </p>
-        <div className="grid grid-cols-3 gap-8 w-full mx-auto mt-6">
+        </motion.p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full mx-auto mt-6">
           {tools.map((tool, index) => (
             <Tilt
               key={index}
@@ -74,12 +99,24 @@ function Skills() {
               transitionSpeed={1000}
               gyroscope={true}
             >
-              <div className="cursor-target text-center bg-white/12 hover:bg-white/8 rounded-[8px] p-4 backdrop-blur-[4px] flex flex-col items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeOut",
+                  delay: index * 0.05,
+                }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="cursor-target text-center bg-white/12 hover:bg-white/8 rounded-[8px] p-4 backdrop-blur-[4px] flex flex-col items-center"
+              >
                 <div className="w-1/2 flex justify-center">
-                  <i className={`${tool.iconClass} text-[64px]`}></i>
+                  <i
+                    className={`${tool.iconClass} text-5xl md:text-[64px]`}
+                  ></i>
                 </div>
                 <p className="mt-2">{tool.title}</p>
-              </div>
+              </motion.div>
             </Tilt>
           ))}
         </div>

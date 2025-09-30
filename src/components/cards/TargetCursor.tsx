@@ -19,6 +19,12 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   spinDuration = 2,
   hideDefaultCursor = true,
 }) => {
+  const isMdUp = typeof window !== "undefined" && window.innerWidth <= 768;
+
+  if (isMdUp) {
+    return null;
+  }
+
   const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef = useRef<NodeListOf<HTMLDivElement>>(null);
   const spinTl = useRef<gsap.core.Timeline>(null);
