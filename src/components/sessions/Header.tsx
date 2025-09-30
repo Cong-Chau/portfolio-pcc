@@ -35,7 +35,7 @@ function Header() {
             Dự án
           </a>
           <a
-            href="#"
+            href="#contact"
             className="hover:bg-white/24 duration-200 m-1 p-1 px-2 rounded-[4px] font-semibold cursor-target"
           >
             Liên hệ

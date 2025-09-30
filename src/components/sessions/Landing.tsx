@@ -60,7 +60,7 @@ function Landing() {
               typingSpeed={75}
               pauseDuration={1500}
               showCursor={true}
-              cursorCharacter="|"
+              cursorCharacter="_"
             />
           </div>
         </div>
@@ -94,7 +94,7 @@ function Landing() {
             typingSpeed={1}
             pauseDuration={1500}
             showCursor={true}
-            cursorCharacter="|"
+            cursorCharacter="_"
           />
         </div>
         {/* Button */}

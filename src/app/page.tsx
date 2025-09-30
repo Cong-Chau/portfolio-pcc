@@ -4,6 +4,7 @@ import Landing from "@/components/sessions/Landing";
 import About from "@/components/sessions/About";
 import Skills from "@/components/sessions/Skills";
 import Projects from "@/components/sessions/Projects";
+import Contact from "@/components/sessions/Contact";
 export default function Home() {
   return (
     <div className="select-none">
@@ -12,6 +13,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Contact />
     </div>
   );
 }
