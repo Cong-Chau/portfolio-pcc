@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TextType from "../cards/TextType";
@@ -48,6 +48,9 @@ function Landing() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const { t, lang, setLang } = useLanguage();
 
+  const landingTitle = useMemo(() => [t("landing.title")], [t, lang]);
+  const landingSummary = useMemo(() => [t("landing.sumary")], [t, lang]);
+
   return (
     <div
       id="home"
@@ -60,7 +63,7 @@ function Landing() {
         <div className="relative w-fit h-fit min-h-8">
           <div className={`z-10 font-semibold text-xl inline-block `}>
             <TextType
-              text={[t("landing.title")]}
+              text={landingTitle}
               typingSpeed={75}
               pauseDuration={1500}
               showCursor={true}
@@ -92,7 +95,7 @@ function Landing() {
         />
         <div className="w-4/5 min-h-32 md:min-h-24">
           <TextType
-            text={[t("landing.sumary")]}
+            text={landingSummary}
             typingSpeed={1}
             pauseDuration={1500}
             showCursor={true}
