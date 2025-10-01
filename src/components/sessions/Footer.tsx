@@ -6,7 +6,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black border-t border-gray-800">
+    <footer className="bg-black border-t border-gray-800 w-full">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
@@ -27,7 +27,7 @@ function Footer() {
               <li>
                 <a
                   href="#projects"
-                  className="text-gray-400 hover:text-cyan-400 transition-colors text-sm"
+                  className="text-gray-400 hover:text-cyan-400 transition-colors text-sm cursor-target"
                 >
                   Projects
                 </a>
@@ -35,7 +35,7 @@ function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="text-gray-400 hover:text-cyan-400 transition-colors text-sm"
+                  className="text-gray-400 hover:text-cyan-400 transition-colors text-sm cursor-target"
                 >
                   Contact
                 </a>

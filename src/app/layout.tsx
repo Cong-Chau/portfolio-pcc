@@ -4,6 +4,7 @@ import "./globals.css";
 import Background from "@/components/sessions/Background";
 import Preloader from "@/components/common/Preloader";
 import TargetCursor from "@/components/cards/TargetCursor";
+import { LanguageProvider } from "@/context/LanguageContext";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -47,11 +48,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi">
       <head>
@@ -66,9 +63,13 @@ export default function RootLayout({
         <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         <Background />
         <Preloader>
-          <main className="relative z-10 pt-20">{children}</main>
+          <LanguageProvider>
+            <main className="relative z-10 pt-20">{children}</main>
+          </LanguageProvider>
         </Preloader>
       </body>
     </html>
   );
 }
+
+export default RootLayout;

@@ -58,8 +58,10 @@ const TextType = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(!startOnVisible);
+  const [restartTyping, setRestartTyping] = useState(false); // ⚡ mới
   const cursorRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLElement>(null);
+
   const textArray = useMemo(
     () => (Array.isArray(text) ? text : [text]),
     [text]
@@ -71,10 +73,9 @@ const TextType = ({
     return Math.random() * (max - min) + min;
   }, [variableSpeed, typingSpeed]);
 
-  const getCurrentTextColor = () => {
-    return "#ffffff";
-  };
+  const getCurrentTextColor = () => "#ffffff";
 
+  // IntersectionObserver nếu startOnVisible
   useEffect(() => {
     if (!startOnVisible || !containerRef.current) return;
 
@@ -93,6 +94,7 @@ const TextType = ({
     return () => observer.disconnect();
   }, [startOnVisible]);
 
+  // Cursor blink
   useEffect(() => {
     if (showCursor && cursorRef.current) {
       gsap.set(cursorRef.current, { opacity: 1 });
@@ -106,10 +108,25 @@ const TextType = ({
     }
   }, [showCursor, cursorBlinkDuration]);
 
+  // ⚡ Reset typing khi textArray đổi (ví dụ đổi lang)
+  useEffect(() => {
+    setRestartTyping(true);
+  }, [textArray]);
+
+  // Main typing animation
   useEffect(() => {
     if (!isVisible) return;
 
     let timeout: NodeJS.Timeout;
+
+    // Reset state nếu cần
+    if (restartTyping) {
+      setDisplayedText("");
+      setCurrentCharIndex(0);
+      setIsDeleting(false);
+      setCurrentTextIndex(0);
+      setRestartTyping(false);
+    }
 
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode
@@ -120,9 +137,7 @@ const TextType = ({
       if (isDeleting) {
         if (displayedText === "") {
           setIsDeleting(false);
-          if (currentTextIndex === textArray.length - 1 && !loop) {
-            return;
-          }
+          if (currentTextIndex === textArray.length - 1 && !loop) return;
 
           if (onSentenceComplete) {
             onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
@@ -177,6 +192,7 @@ const TextType = ({
     reverseMode,
     variableSpeed,
     onSentenceComplete,
+    restartTyping, // ⚡ thêm vào dependency
   ]);
 
   const shouldHideCursor =

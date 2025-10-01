@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 function Contact() {
   return (
-    <div id="contact" className="min-h-screen pt-12">
+    <div id="contact" className="w-full min-h-screen pt-12">
       <div
         className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-12 px-4 mb-8
         lg:py-12 lg:px-24
@@ -127,7 +127,7 @@ function Contact() {
 
         {/* Right form */}
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.05 }}
           viewport={{ once: false, amount: 0.1 }}

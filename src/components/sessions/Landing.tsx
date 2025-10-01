@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TextType from "../cards/TextType";
 import Shuffle from "../cards/Shuffle";
+import { useLanguage } from "@/context/LanguageContext";
+
 import {
   Download,
   Github,
@@ -44,6 +46,8 @@ const bubbles: Bubble[] = [
 function Landing() {
   const [hoverText, setHoverText] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const { t, lang, setLang } = useLanguage();
+
   return (
     <div
       id="home"
@@ -56,7 +60,7 @@ function Landing() {
         <div className="relative w-fit h-fit min-h-8">
           <div className={`z-10 font-semibold text-xl inline-block `}>
             <TextType
-              text={["Xin chào, tôi là Phan Công Châu"]}
+              text={[t("landing.title")]}
               typingSpeed={75}
               pauseDuration={1500}
               showCursor={true}
@@ -88,9 +92,7 @@ function Landing() {
         />
         <div className="w-4/5 min-h-32 md:min-h-24">
           <TextType
-            text={[
-              "As an Information Technology student passionate about frontend development, I have experience with React.js,Tailwind CSS, and various frontend technologies. I am to become a Fullstack Developer.",
-            ]}
+            text={[t("landing.sumary")]}
             typingSpeed={1}
             pauseDuration={1500}
             showCursor={true}
@@ -109,7 +111,7 @@ function Landing() {
             className={`cursor-target relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white hover:bg-white hover:text-black
                         hover:cursor-pointer duration-200 flex flex-row gap-2`}
           >
-            <p>CV của tôi</p> <Download />
+            <p>{t("landing.CV")}</p> <Download />
           </button>
         </motion.div>
         {/* Icon */}
