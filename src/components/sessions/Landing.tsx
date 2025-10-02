@@ -59,6 +59,13 @@ function Landing() {
   const landingTitle = useMemo(() => [t("landing.title")], [t, lang]);
   const landingSummary = useMemo(() => [t("landing.sumary")], [t, lang]);
 
+  const handleDownload = () => {
+    window.open(
+      "https://www.dropbox.com/scl/fi/3zof4znywfg8h21207sat/PhanCongChau_CV_FE_Intern.pdf?rlkey=t6w7w101ey6w70w6qqdu2cbqv&st=sbg69n1g&dl=1",
+      "_blank"
+    );
+  };
+
   return (
     <div
       id="home"
@@ -119,6 +126,7 @@ function Landing() {
           className=" relative w-auto h-auto md:mt-4 "
         >
           <button
+            onClick={handleDownload}
             className={`cursor-target relative z-10 border rounded-[12px] font-semibold py-2 px-4 border-white text-white hover:bg-white hover:text-black
                         hover:cursor-pointer duration-200 flex flex-row gap-2`}
           >

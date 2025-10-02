@@ -14,7 +14,7 @@ export default function CVPreview() {
   return (
     <div className="h-full flex justify-center">
       <Document
-        file="/pdfs/PhanCongChau_CV_FE_Intern.pdf"
+        file="/pdfs/cv.pdf"
         onLoadSuccess={({ numPages }) => setNumPages(numPages)}
       >
         <Page
