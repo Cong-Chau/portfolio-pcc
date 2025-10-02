@@ -7,6 +7,7 @@ import Shuffle from "../cards/Shuffle";
 import { useLanguage } from "@/context/LanguageContext";
 import { sendMail } from "@/utils/sendMail";
 import { callPhone } from "@/utils/callPhone";
+import { openLink } from "@/utils/openLink";
 import {
   Download,
   Github,
@@ -35,18 +36,18 @@ const bubbles: Bubble[] = [
   },
   {
     icon: <Github />,
-    text: "Github: github.com/Cong-Chau",
-    action: () => sendMail("congchau206@gmail.com"),
+    text: "Github: @Cong-Chau",
+    action: () => openLink("https://github.com/Cong-Chau"),
   },
   {
     icon: <Linkedin />,
-    text: "LinkedIn: linkedin.com/in/phancongchau20062004/",
-    action: () => sendMail("congchau206@gmail.com"),
+    text: "LinkedIn: @phancongchau20062004",
+    action: () => openLink("https://www.linkedin.com/in/phancongchau20062004/"),
   },
   {
     icon: <MapPin />,
     text: "Location: TP Hồ Chí Minh",
-    action: () => sendMail("congchau206@gmail.com"),
+    action: () => openLink("https://www.google.com/maps?q=Thu+Duc+Ho+Chi+Minh"),
   },
 ];
 
@@ -61,7 +62,7 @@ function Landing() {
   return (
     <div
       id="home"
-      className={`text-white w-full min-h-[calc(100vh-80px)] flex flex-col md:flex-row md:justify-between scroll-mt-20
+      className={`text-white w-full flex flex-col md:flex-row md:justify-between scroll-mt-20 pb-12
         pt-12 pl-4 pr-4
         lg:pt-12 lg:pl-20 lg:pr-12
         2xl:pt-24 2xl:pl-48 2xl:pr-36`}
@@ -181,87 +182,32 @@ function Landing() {
         </motion.div>
       </div>
       {/* Mobile */}
+      {/* Mobile */}
       <div className="w-full mt-12 flex flex-col gap-4 md:hidden">
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-row items-center"
-        >
-          <div
-            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 
-                        flex justify-center items-center rounded-[8px] mr-2 bg-white/20 text-white`}
+        {bubbles.map((bubble, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.15 + index * 0.05,
+            }}
+            viewport={{ once: false, amount: 0.5 }}
+            onClick={bubble.action}
+            className="flex flex-row items-center cursor-pointer"
           >
-            <Mail />
-          </div>
-          <span className="font-semibold mb-2">congchau206@gmail.com</span>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-row items-center"
-        >
-          <div
-            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 flex justify-center items-center rounded-[8px] mr-2 bg-white/20 text-white`}
-          >
-            <PhoneCall />
-          </div>
-          <span className="font-semibold mb-2">0703913350</span>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-row items-center"
-        >
-          <div
-            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 
-              flex justify-center items-center rounded-[8px] mr-2 bg-white/20 text-white`}
-          >
-            <Github />
-          </div>
-          <span className="font-semibold mb-2">github.com/Cong-Chau</span>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-row items-center"
-        >
-          <div
-            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 
-              flex justify-center items-center rounded-[8px] mr-2 bg-white/20 text-white`}
-          >
-            <Linkedin className="w-5 h-5 align-middle" />
-          </div>
-          <span className="font-semibold mb-2">
-            linkedin.com/in/phancongchau20062004/
-          </span>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="flex flex-row  items-center"
-        >
-          <div
-            className={`hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 
-              flex justify-center items-center rounded-[8px] mr-2 bg-white/20 text-white`}
-          >
-            <MapPin />
-          </div>
-          <span className="font-semibold mb-2">TP Hồ Chí Minh</span>
-        </motion.div>
+            <div
+              className="hover:cursor-pointer hover:scale-110 hover:bg-white/24 
+                    transition-transform w-10 h-10 flex justify-center items-center 
+                    rounded-[8px] mr-2 bg-white/20 text-white"
+            >
+              {bubble.icon}
+            </div>
+            <span className="font-semibold mb-2 pt-2">{bubble.text}</span>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

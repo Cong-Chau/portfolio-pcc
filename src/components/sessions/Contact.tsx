@@ -1,14 +1,40 @@
 "use client";
 import { Github, Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
-import Footer from "./Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import { sendMail } from "@/utils/sendMail";
+import { callPhone } from "@/utils/callPhone";
+import { openLink } from "@/utils/openLink";
+import { useState } from "react";
 
 function Contact() {
   const { t, lang } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleSend = () => {
+    // Validate input
+    if (!email || !subject || !name || !message) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+    const body = `From: ${name} (${email})\n\n${message}`;
+    sendMail("congchau206@gmail.com", subject, body);
+
+    // Reset form sau khi gửi
+    setEmail("");
+    setSubject("");
+    setName("");
+    setMessage("");
+  };
 
   return (
-    <div id="contact" className="w-full min-h-screen pt-12">
+    <div id="contact" className="w-full pt-12">
       <div
         className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-12 px-4 mb-8
         lg:py-12 lg:px-24
@@ -31,7 +57,10 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white flex flex-row items-center w-4/5 lg:w-full"
           >
-            <div className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20">
+            <div
+              onClick={() => sendMail("congchau206@gmail.com")}
+              className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
+            >
               <Mail />
             </div>
             <div className="flex flex-col">
@@ -48,7 +77,10 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white flex flex-row items-center w-4/5 lg:w-full"
           >
-            <div className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20">
+            <div
+              onClick={() => callPhone("0703913350")}
+              className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
+            >
               <PhoneCall />
             </div>
             <div className="flex flex-col">
@@ -67,7 +99,12 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white flex flex-row items-center w-4/5 lg:w-full"
           >
-            <div className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20">
+            <div
+              onClick={() =>
+                openLink("https://www.google.com/maps?q=Thu+Duc+Ho+Chi+Minh")
+              }
+              className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
+            >
               <MapPin />
             </div>
             <div className="flex flex-col">
@@ -100,14 +137,14 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white flex flex-row items-center w-4/5 lg:w-full"
           >
-            <a
-              href="https://www.linkedin.com/in/phancongchau20062004/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
+              onClick={() =>
+                openLink("https://www.linkedin.com/in/phancongchau20062004/")
+              }
               className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
             >
               <Linkedin />
-            </a>
+            </div>
             <div className="flex flex-col">
               <p className="font-semibold">Linkedin</p>
               <p className="text-gray-400">@phancongchau20062004</p>
@@ -120,14 +157,12 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white flex flex-row items-center w-4/5 lg:w-full"
           >
-            <a
-              href="https://github.com/Cong-Chau"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
+              onClick={() => openLink("https://github.com/Cong-Chau")}
               className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
             >
               <Github />
-            </a>
+            </div>
             <div className="flex flex-col">
               <p className="font-semibold">Github</p>
               <p className="text-gray-400">Cong-Chau</p>
@@ -144,32 +179,57 @@ function Contact() {
           className="w-4/5 md:w-2/5 bg-white/5 backdrop-blur-md rounded-xl p-6 flex flex-col gap-6"
         >
           <label className="flex flex-col gap-2 text-white">
-            <span>{t("contact.form.name")}</span>
+            <span>Email</span>
             <input
-              type="text"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </label>
           <label className="flex flex-col gap-2 text-white">
-            <span>Email</span>
+            <span>{lang == "vi" ? "Tiêu đề" : "Subject"}</span>
             <input
-              type="email"
+              type="text"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </label>
+          <label className="flex flex-col gap-2 text-white">
+            <span>{t("contact.form.name")}</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </label>
+
           <label className="flex flex-col gap-2 text-white">
             <span>{t("contact.form.message")}</span>
             <textarea
               rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </label>
-          <button className="cursor-target w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:cursor-pointer hover:bg-blue-400 transition">
+          <button
+            onClick={handleSend}
+            className="cursor-target w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:cursor-pointer hover:bg-blue-400 transition"
+          >
             {t("contact.form.btn")}
           </button>
+          {error && (
+            <p className="text-red-400 text-sm">
+              {lang === "vi"
+                ? "Vui lòng nhập đầy đủ thông tin."
+                : "Please fill in all fields."}
+            </p>
+          )}
         </motion.div>
       </div>
-      <Footer />
     </div>
   );
 }

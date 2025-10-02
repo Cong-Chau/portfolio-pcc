@@ -24,7 +24,7 @@ function Skills() {
   return (
     <div
       id="skills"
-      className="w-full flex flex-col items-center justify-start gap-4 text-white my-28 scroll-mt-20 min-h-screen"
+      className="w-full flex flex-col items-center justify-start gap-4 text-white my-28 scroll-mt-20 "
     >
       <p className="w-full text-center pb-4 font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
         {t("skills.header")}

@@ -21,6 +21,7 @@ export default function CVPreview() {
           pageNumber={1}
           renderAnnotationLayer={false}
           renderTextLayer={false}
+          scale={0.9}
         />
       </Document>
     </div>

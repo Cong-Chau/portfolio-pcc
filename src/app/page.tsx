@@ -5,6 +5,8 @@ import About from "@/components/sessions/About";
 import Skills from "@/components/sessions/Skills";
 import Projects from "@/components/sessions/Projects";
 import Contact from "@/components/sessions/Contact";
+import Footer from "@/components/sessions/Footer";
+
 export default function Home() {
   return (
     <div className="select-none">
@@ -14,6 +16,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </div>
   );
 }

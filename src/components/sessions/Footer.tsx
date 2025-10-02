@@ -2,6 +2,9 @@
 import { Github, Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { sendMail } from "@/utils/sendMail";
+import { openLink } from "@/utils/openLink";
+
 function Footer() {
   const currentYear = new Date().getFullYear();
   const { t, lang } = useLanguage();
@@ -57,14 +60,12 @@ function Footer() {
                 viewport={{ once: false, amount: 0.1 }}
                 className="text-white"
               >
-                <a
-                  href="https://github.com/Cong-Chau"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  onClick={() => openLink("https://github.com/Cong-Chau")}
                   className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
                 >
                   <Github />
-                </a>
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -73,14 +74,16 @@ function Footer() {
                 viewport={{ once: false, amount: 0.1 }}
                 className="text-white"
               >
-                <a
-                  href="https://www.linkedin.com/in/phancongchau20062004/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  onClick={() =>
+                    openLink(
+                      "https://www.linkedin.com/in/phancongchau20062004/"
+                    )
+                  }
                   className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
                 >
                   <Linkedin />
-                </a>
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -89,7 +92,10 @@ function Footer() {
                 viewport={{ once: false, amount: 0.1 }}
                 className="text-white"
               >
-                <div className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20">
+                <div
+                  onClick={() => sendMail("congchau206@gmail.com")}
+                  className="cursor-target hover:cursor-pointer hover:scale-105 hover:bg-white/24 transition-transform w-12 h-12 flex justify-center items-center rounded-lg mr-2 bg-white/20"
+                >
                   <Mail />
                 </div>
               </motion.div>
