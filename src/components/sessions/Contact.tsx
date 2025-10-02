@@ -2,8 +2,11 @@
 import { Github, Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
+import { useLanguage } from "@/context/LanguageContext";
 
 function Contact() {
+  const { t, lang } = useLanguage();
+
   return (
     <div id="contact" className="w-full min-h-screen pt-12">
       <div
@@ -14,11 +17,10 @@ function Contact() {
         {/* Left content */}
         <div className="w-full md:w-2/5 flex flex-col items-center lg:items-start gap-6">
           <p className="w-4/5 lg:w-full pb-3 text-center md:text-left font-bold text-3xl md:text-5xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-            Contact with me
+            {t("contact.header")}
           </p>
           <p className="hidden md:block text-white w-4/5 lg:w-full text-center md:text-left">
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision. Feel free to reach out!
+            {t("contact.title1")}
           </p>
 
           {/* Email */}
@@ -50,7 +52,9 @@ function Contact() {
               <PhoneCall />
             </div>
             <div className="flex flex-col">
-              <p className="font-semibold">Phone</p>
+              <p className="font-semibold">
+                {lang == "vi" ? "Điện thoại" : "Phone"}
+              </p>
               <p className="text-gray-400">0703 913 350</p>
             </div>
           </motion.div>
@@ -67,8 +71,12 @@ function Contact() {
               <MapPin />
             </div>
             <div className="flex flex-col">
-              <p className="font-semibold">Location</p>
-              <p className="text-gray-400">Ho Chi Minh City</p>
+              <p className="font-semibold">
+                {lang == "vi" ? "Vị trí" : "Location"}
+              </p>
+              <p className="text-gray-400">
+                {lang == "vi" ? "TP Hồ Chí Minh" : "Ho Chi Minh City"}
+              </p>
             </div>
           </motion.div>
 
@@ -80,8 +88,10 @@ function Contact() {
             viewport={{ once: false, amount: 0.1 }}
             className="text-white w-4/5 lg:w-full text-left"
           >
-            Or connect with me on{" "}
-            <span className="font-semibold text-blue-400">social media</span>
+            {t("contact.title2")}
+            <span className="font-semibold text-blue-400 ml-1">
+              {t("contact.titleSocialMedia")}
+            </span>
           </motion.p>
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -134,7 +144,7 @@ function Contact() {
           className="w-4/5 md:w-2/5 bg-white/5 backdrop-blur-md rounded-xl p-6 flex flex-col gap-6"
         >
           <label className="flex flex-col gap-2 text-white">
-            <span>Fullname</span>
+            <span>{t("contact.form.name")}</span>
             <input
               type="text"
               className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -148,14 +158,14 @@ function Contact() {
             />
           </label>
           <label className="flex flex-col gap-2 text-white">
-            <span>Message</span>
+            <span>{t("contact.form.message")}</span>
             <textarea
               rows={4}
               className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </label>
           <button className="cursor-target w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:cursor-pointer hover:bg-blue-400 transition">
-            Send
+            {t("contact.form.btn")}
           </button>
         </motion.div>
       </div>

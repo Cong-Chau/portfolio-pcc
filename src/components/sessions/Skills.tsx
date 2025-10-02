@@ -1,7 +1,7 @@
 "use client";
-
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const techs = [
   { title: "HTML5", iconClass: "devicon-html5-plain colored" },
@@ -19,17 +19,18 @@ const tools = [
 ];
 
 function Skills() {
+  const { t, lang } = useLanguage();
+
   return (
     <div
       id="skills"
       className="w-full flex flex-col items-center justify-start gap-4 text-white my-28 scroll-mt-20 min-h-screen"
     >
-      <p className="w-full text-center font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        Skills
+      <p className="w-full text-center pb-4 font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+        {t("skills.header")}
       </p>
       <p className="text-center w-4/5 md:w-2/5 text-white">
-        Explore my journey through technical expertise. Each section represents
-        a milestone in my continuous learning path.
+        {t("skills.title")}
       </p>
 
       {/* Công nghệ */}
@@ -41,7 +42,7 @@ function Skills() {
           viewport={{ once: false, amount: 0.5 }}
           className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto"
         >
-          Công nghệ
+          {t("skills.techs")}
         </motion.p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full mx-auto mt-6">
           {techs.map((tech, index) => (
@@ -86,7 +87,7 @@ function Skills() {
           viewport={{ once: false, amount: 0.5 }}
           className="text-center bg-white/12 rounded-[8px] px-4 py-2 backdrop-blur-sm font-semibold mt-4 w-full mx-auto"
         >
-          Công cụ
+          {t("skills.tools")}
         </motion.p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full mx-auto mt-6">
           {tools.map((tool, index) => (

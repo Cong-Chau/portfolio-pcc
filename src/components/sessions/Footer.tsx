@@ -1,12 +1,13 @@
 "use client";
 import { Github, Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
-
+import { useLanguage } from "@/context/LanguageContext";
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t, lang } = useLanguage();
 
   return (
-    <footer className="bg-black border-t border-gray-800 w-full">
+    <footer className="bg-black/50 backdrop-blur-[4px] border-t border-gray-800 w-full">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
@@ -15,21 +16,23 @@ function Footer() {
               Portfolio
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Frontend developer passionate about creating innovative web
-              solutions and bringing ideas to life.
+              {t("footer.title")}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold">Quick Links</h4>
+            <h4 className="text-white font-semibold">
+              {" "}
+              {t("footer.quickLink.header")}
+            </h4>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#projects"
                   className="text-gray-400 hover:text-cyan-400 transition-colors text-sm cursor-target"
                 >
-                  Projects
+                  {t("footer.quickLink.projects")}
                 </a>
               </li>
               <li>
@@ -37,7 +40,7 @@ function Footer() {
                   href="#contact"
                   className="text-gray-400 hover:text-cyan-400 transition-colors text-sm cursor-target"
                 >
-                  Contact
+                  {t("footer.quickLink.contact")}
                 </a>
               </li>
             </ul>
@@ -45,7 +48,7 @@ function Footer() {
 
           {/* Social Links */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold">Connect</h4>
+            <h4 className="text-white font-semibold">{t("footer.connect")}</h4>
             <div className="flex gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -100,9 +103,7 @@ function Footer() {
             <p className="text-gray-400 text-sm">
               © {currentYear} All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm">
-              Designed and Developed by Phan Cong Chau
-            </p>
+            <p className="text-gray-400 text-sm">{t("footer.by")}</p>
           </div>
         </div>
       </div>

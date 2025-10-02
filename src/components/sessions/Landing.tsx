@@ -5,7 +5,8 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TextType from "../cards/TextType";
 import Shuffle from "../cards/Shuffle";
 import { useLanguage } from "@/context/LanguageContext";
-
+import { sendMail } from "@/utils/sendMail";
+import { callPhone } from "@/utils/callPhone";
 import {
   Download,
   Github,
@@ -18,28 +19,34 @@ import {
 interface Bubble {
   icon: React.ReactNode;
   text: string;
+  action?: () => void;
 }
 
 const bubbles: Bubble[] = [
   {
     icon: <Mail />,
     text: "Email: congchau206@gmail.com",
+    action: () => sendMail("congchau206@gmail.com"),
   },
   {
     icon: <PhoneCall />,
     text: "Phone: 0703913350",
+    action: () => callPhone("0703913350"),
   },
   {
     icon: <Github />,
     text: "Github: github.com/Cong-Chau",
+    action: () => sendMail("congchau206@gmail.com"),
   },
   {
     icon: <Linkedin />,
     text: "LinkedIn: linkedin.com/in/phancongchau20062004/",
+    action: () => sendMail("congchau206@gmail.com"),
   },
   {
     icon: <MapPin />,
     text: "Location: TP Hồ Chí Minh",
+    action: () => sendMail("congchau206@gmail.com"),
   },
 ];
 
@@ -137,6 +144,7 @@ function Landing() {
               onMouseMove={(e) => {
                 setCursorPos({ x: e.clientX, y: e.clientY });
               }}
+              onClick={bubble.action}
               className={`cursor-target hover:cursor-pointer hover:scale-110 hover:bg-white/24 transition-transform w-10 h-10 
                 flex justify-center items-center rounded-[8px] bg-white/20 text-white`}
             >
