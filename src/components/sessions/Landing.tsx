@@ -61,7 +61,7 @@ function Landing() {
 
   const handleDownload = () => {
     window.open(
-      "https://www.dropbox.com/scl/fi/3zof4znywfg8h21207sat/PhanCongChau_CV_FE_Intern.pdf?rlkey=t6w7w101ey6w70w6qqdu2cbqv&st=sbg69n1g&dl=1",
+      "https://www.dropbox.com/scl/fi/3zof4znywfg8h21207sat/PhanCongChau_CV_FE_Intern.pdf?rlkey=t6w7w101ey6w70w6qqdu2cbqv&st=qloe8q40&dl=1",
       "_blank"
     );
   };
