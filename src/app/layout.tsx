@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     siteName: "Phan Công Châu Portfolio",
     images: [
       {
-        url: "/images/preview.png",
+        url: "https://phancongchau.vercel.app/images/preview.png",
         width: 1200,
         height: 630,
-        alt: "Portfolio Preview",
+        alt: "Phan Công Châu",
       },
     ],
     locale: "vi_VN",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Phan Công Châu - Frontend Developer",
     description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
-    images: ["/images/preview.png"],
+    images: ["https://phancongchau.vercel.app/images/preview.png"],
   },
 };
 

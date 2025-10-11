@@ -28,11 +28,10 @@ function Projects() {
       className="w-full flex flex-col items-center justify-start gap-4 text-white my-28 scroll-mt-20 min-h-screen"
     >
       <p className="w-full pb-3 text-center font-bold text-5xl md:text-7xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        Projects
+        {t("projects.header")}
       </p>
       <p className="text-center w-4/5 md:w-2/5 text-white">
-        Discover my journey through projects, with each one marking a step
-        forward in my growth and learning.
+        {t("projects.title")}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-4/5 mx-auto mt-6">
         {projects.map((project, index) => (
