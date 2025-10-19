@@ -41,8 +41,8 @@ const bubbles: Bubble[] = [
   },
   {
     icon: <Linkedin />,
-    text: "LinkedIn: @phancongchau20062004",
-    action: () => openLink("https://www.linkedin.com/in/phancongchau20062004/"),
+    text: "LinkedIn: @congchau20604",
+    action: () => openLink("https://www.linkedin.com/in/congchau20604/"),
   },
   {
     icon: <MapPin />,
@@ -61,7 +61,7 @@ function Landing() {
 
   const handleDownload = () => {
     window.open(
-      "https://www.dropbox.com/scl/fi/3zof4znywfg8h21207sat/PhanCongChau_CV_FE_Intern.pdf?rlkey=t6w7w101ey6w70w6qqdu2cbqv&st=qloe8q40&dl=1",
+      "https://www.dropbox.com/scl/fi/hli1mq9yy1fhuohja83jp/PhanCongChau_CV_FullStack_Intern.pdf?rlkey=18vm3zej7fi7do8u0uqv5zcuv&st=zqyrrzq7&dl=1",
       "_blank"
     );
   };
@@ -93,7 +93,7 @@ function Landing() {
           viewport={{ once: true }}
           className="font-bold text-5xl md:text-7xl"
         >
-          Frontend
+          Fullstack
         </motion.span>
         <Shuffle
           text="Developer"
@@ -189,7 +189,6 @@ function Landing() {
           />
         </motion.div>
       </div>
-      {/* Mobile */}
       {/* Mobile */}
       <div className="w-full mt-12 flex flex-col gap-4 md:hidden">
         {bubbles.map((bubble, index) => (

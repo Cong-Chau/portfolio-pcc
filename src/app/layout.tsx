@@ -12,11 +12,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Phan Công Châu - Frontend Developer",
-  description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+  title: "Phan Công Châu - Fullstack Developer",
+  description: "Portfolio cá nhân của Phan Công Châu - Fullstack Developer...",
   keywords: [
     "Phan Công Châu",
-    "Frontend Developer",
+    "Fullstack Developer",
     "React",
     "Next.js",
     "TailwindCSS",
@@ -25,8 +25,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Phan Công Châu" }],
   icons: { icon: "/images/favicon.png" },
   openGraph: {
-    title: "Phan Công Châu - Frontend Developer",
-    description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+    title: "Phan Công Châu - Fullstack Developer",
+    description:
+      "Portfolio cá nhân của Phan Công Châu - Fullstack Developer...",
     url: "https://phancongchau.vercel.app/",
     siteName: "Phan Công Châu Portfolio",
     images: [
@@ -42,8 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Phan Công Châu - Frontend Developer",
-    description: "Portfolio cá nhân của Phan Công Châu - Frontend Developer...",
+    title: "Phan Công Châu - Fullstack Developer",
+    description:
+      "Portfolio cá nhân của Phan Công Châu - Fullstack Developer...",
     images: ["https://phancongchau.vercel.app/images/preview.png"],
   },
 };

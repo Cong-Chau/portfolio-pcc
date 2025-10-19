@@ -6,19 +6,19 @@
 
   "landing": {
     "title": "Hello, I'm Phan Cong Chau",
-    "sumary": "As an Information Technology student passionate about frontend development, I have experience with React.js, Tailwind CSS, and various frontend technologies. My goal is to become a Fullstack Developer.",
+    "sumary": "A passionate fullstack developer focused on building complete, user-centric web solutions and continuously improving to deliver high-quality digital experiences.",
     "CV": "My CV"
   },
 
   "about": {
     "header": "About",
-    "title": "Frontend developer passionate about creating beautiful and functional web experiences",
+    "title": "Fullstack developer passionate about building complete and user-focused web applications",
     "aboutMes": [
-      "Hello, I'm Phan Công Châu.",
-      "I am a student at the Faculty of Information Technology, University of Science, Ho Chi Minh City.",
-      "I am currently pursuing Frontend Development, with a passion for building modern and user-friendly web interfaces.",
-      "I love exploring and learning new technologies, experimenting with frameworks, and continuously improving my coding skills to stay up to date with the latest trends in web development.",
-      "My goal is to create high-quality web products that are both visually appealing and deliver smooth, efficient user experiences."
+      "Hello, I'm Phan Cong Chau.",
+      "I specialize in fullstack web development, focusing on creating seamless, efficient, and visually appealing digital experiences.",
+      "I enjoy working on both the frontend and backend, turning ideas into fully functional web applications.",
+      "I love exploring new technologies, learning continuously, and improving my skills to stay current with modern development practices.",
+      "My goal is to build scalable, high-quality web products that provide real value and great experiences for users."
     ]
   },
 
@@ -110,7 +110,7 @@
   },
 
   "footer": {
-    "title": "Frontend developer passionate about creating innovative web solutions and bringing ideas to life.",
+    "title": "Fullstack developer passionate about creating innovative web solutions and bringing ideas to life.",
     "quickLink": {
       "header": "Quick Links",
       "projects": "Projects",

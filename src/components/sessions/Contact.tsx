@@ -184,7 +184,7 @@ function Contact() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="cursor-target bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </label>
           <label className="flex flex-col gap-2 text-white">
@@ -193,7 +193,7 @@ function Contact() {
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="cursor-target bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </label>
           <label className="flex flex-col gap-2 text-white">
@@ -202,7 +202,7 @@ function Contact() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="cursor-target bg-white/10 border border-white/20 rounded-lg px-3 h-11 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </label>
 
@@ -212,7 +212,7 @@ function Contact() {
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="cursor-target bg-white/10 border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </label>
           <button

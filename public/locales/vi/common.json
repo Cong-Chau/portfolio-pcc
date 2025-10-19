@@ -13,22 +13,21 @@
 
   "landing": {
     "title": "Xin chào, tôi là Phan Công Châu",
-    "sumary": "Là một sinh viên Công nghệ Thông tin đam mê lập trình frontend, tôi có kinh nghiệm với React.js, Tailwind CSS và nhiều công nghệ frontend khác. Mục tiêu của tôi là trở thành một Fullstack Developer.",
+    "sumary": "Là một fullstack developer đam mê xây dựng các giải pháp web toàn diện, lấy người dùng làm trung tâm và không ngừng phát triển để mang lại trải nghiệm số chất lượng cao.",
     "CV": "CV của tôi"
   },
 
   "about": {
     "header": "Giới thiệu",
-    "title": "Lập trình viên đam mê với niềm yêu thích tạo ra những trải nghiệm web đẹp mắt và hiệu quả",
+    "title": "Fullstack developer đam mê xây dựng các ứng dụng web hoàn chỉnh và lấy người dùng làm trung tâm",
     "aboutMes": [
       "Xin chào, tôi là Phan Công Châu.",
-      "Tôi là sinh viên Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự nhiên, TP. Hồ Chí Minh.",
-      "Hiện tại, tôi đang theo đuổi lĩnh vực Frontend Development, với niềm đam mê trong việc xây dựng giao diện web hiện đại và thân thiện với người dùng.",
-      "Tôi yêu thích việc khám phá và học hỏi các công nghệ mới, thử nghiệm nhiều framework khác nhau, đồng thời không ngừng rèn luyện kỹ năng lập trình để bắt kịp xu hướng phát triển web hiện nay.",
-      "Mục tiêu của tôi là tạo ra những sản phẩm web chất lượng cao, vừa thẩm mỹ, vừa mang lại trải nghiệm mượt mà và hiệu quả cho người dùng."
+      "Tôi tập trung vào phát triển web fullstack, hướng đến việc tạo ra những trải nghiệm số mượt mà, hiệu quả và thẩm mỹ.",
+      "Tôi yêu thích cả frontend và backend, biến ý tưởng thành các ứng dụng web hoàn chỉnh.",
+      "Tôi luôn học hỏi và khám phá công nghệ mới để nâng cao kỹ năng và bắt kịp xu hướng phát triển hiện đại.",
+      "Mục tiêu của tôi là xây dựng những sản phẩm web chất lượng cao, có khả năng mở rộng và mang lại giá trị thực cho người dùng."
     ]
   },
-
   "skills": {
     "header": "Kỹ năng",
     "title": "Khám phá hành trình của tôi thông qua kiến thức chuyên môn. Mỗi phần đều là một cột mốc trong con đường học hỏi không ngừng của tôi",
@@ -117,7 +116,7 @@
   },
 
   "footer": {
-    "title": "Lập trình viên Frontend đam mê tạo ra các giải pháp web sáng tạo và biến ý tưởng thành hiện thực.",
+    "title": "Fullstack developer đam mê tạo ra các giải pháp web sáng tạo và biến ý tưởng thành hiện thực.",
     "quickLink": {
       "header": "Truy cập nhanh",
       "projects": "Dự án",
